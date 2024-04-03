@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Exploration-based trajectory optimization for LLM agents.">
+  <meta name="keywords" content="LLM, GPT, agent">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trial and Error: Exploration-Based Trajectory Optimization for LLM Agents</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Trial and Error: Exploration-Based Trajectory Optimization for LLM Agents</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/Yifan-Song793" target="_blank">Yifan Song</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://wadeyin9712.github.io/" target="_blank">Da Yin</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="https://xiangyue9607.github.io/" target="_blank">Xiang Yue</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://jeffhj.github.io/" target="_blank">Jie Huang</a><sup>5</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://pku-tangent.github.io/" target="_blank">Sujian Li</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://yuchenlin.xyz/" target="_blank">Bill Yuchen Lin</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Allen Institute for AI</span>&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>2</sup>Peking University</span>&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>3</sup>UCLA</span>&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>4</sup>Ohio State University</span>&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>5</sup>UIUC</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2403.02502.pdf" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2403.02502" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Yifan-Song793/ETO" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Twitter Link. -->
+              <span class="link-block">
+                <a href="https://twitter.com"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-twitter"></i>
+                  </span>
+                  <span>Twitter</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <img id="model" width="100%" src="static/images/intro.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+
+<!-- <section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present <strong>ETO</strong>, an Exploration-based Trajectory Optimization approach, for LLM agent policy learning.
+            ETO allows an LLM agent to iteratively collect failure trajectories and updates its policy by learning from contrastive failure-success trajectory pairs.
+          </p>
+          
+          <p>
+            Contrary to previous studies that exclusively train on successful expert trajectories, our method allows agents to learn from their exploration failures. This leads to improved performance through an iterative optimization framework.
+            During the exploration phase, the agent interacts with the environment while completing given tasks, gathering failure trajectories to create contrastive trajectory pairs.
+            In the subsequent training phase, the agent utilizes these trajectory preference pairs to update its policy using contrastive learning methods like DPO.
+            This iterative cycle of exploration and training fosters continued improvement in the agents.
+          </p>
+          <p>
+            Our experiments on three complex tasks demonstrate that <strong>ETO</strong> consistently surpasses baseline performance by a large margin.
+            Furthermore, an examination of task-solving efficiency and potential in scenarios lacking expert trajectory underscores the effectiveness of our approach.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+        <div class="content has-text-justified">
+          <p>
+            We present <strong>ETO</strong>, an Exploration-based Trajectory Optimization approach, for LLM agent policy learning.
+            ETO allows an LLM agent to iteratively collect failure trajectories and updates its policy by learning from contrastive failure-success trajectory pairs.
+          </p>
+          <p>
+            <strong>ETO</strong> has following features:
+            <ul>
+              <li>
+                🕹️ <strong>Learning by Trial and Error</strong>
+                <ul>
+                  <li>
+                    🎲 <strong>Learning from Failure Trajectories.</strong> Contrary to previous approaches that exclusively train on successful expert trajectories, ETO allows agents to learn from their exploration failures.
+                  </li>
+                  <li>
+                    🎭 <strong>Contrastive Trajectory Optimization.</strong> ETO applies DPO loss to perform policy learning from failure-success trajectory pairs.
+                  </li>
+                  <li>
+                    🌏 <strong>Iterative Policy Learning.</strong> ETO can be expanded to multiple rounds for further policy enhancement.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                🎖️ <strong>Superior Performance</strong>
+                <ul>
+                  <li>
+                    ⚔️ <strong>Effectiveness on Three Datasets.</strong> ETO significantly outperforms strong baselines, such as RFT, PPO, on WebShop, ScienceWorld, and ALFWorld.
+                  </li>
+                  <li>
+                    🦾 <strong>Generalization on Unseen Scenarios.</strong> ETO demonstrates an impressive performance improvement of 22% over SFT on the challenging out-of-distribution test set in ScienceWorld.
+                  </li>
+                  <li>
+                    ⌛ <strong>Task-Solving Efficiency.</strong> ETO achieves higher rewards within fewer action steps on ScienceWorld.
+                  </li>
+                  <li>
+                    💡 <strong>Potential in Extreme Scenarios.</strong> ETO shows better performance in self-play scenarios where expert trajectories are not available.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </p>
+          
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Learning Process of ETO</h2>
+        <img id="model" width="100%" src="static/images/main.png">
+        <div class="content has-text-justified">
+          ETO starts from a base agent trained by SFT behavioral cloning and performs iterative "exploration-training" process.
+          <ul>
+            <li>
+              <strong>Behavioral Cloning:</strong>
+              <ul>
+                <li>
+                  The base agent is trained by supervised fine-tuning (SFT) on expert trajectories.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Exploration Phase:</strong>
+              <ul>
+                <li>
+                  The agent explores the environment to the get the trajectories on the instructions of training data for BC.
+                </li>
+                <li>
+                  Failure trajectories are collected to create contrastive trajectory pairs.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Training Phase:</strong>
+              <ul>
+                <li>
+                  The agent utilizes these trajectory preference pairs to update its policy using contrastive learning methods like DPO.
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results</h2>
+        <img id="model" width="100%" src="static/images/exp.png">
+        <div class="content has-text-justified">
+          <p>
+            <strong>ETO</strong> is evaluated on three representative agent datasets: WebShop for web navigation, ScienceWorld for simulated science experiments, ALFWorld for embodied household tasks.
+          </p>
+          <p>
+            We find that ETO consistently outperforms all other baseline agent by a large margin on all three datasets.
+            In out-of-distribution unseen scenarios, ETO also shows its effectiveness, achieving an impressive performance boost of 20% on ScienceWorld-Unseen.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{song2024trial,
+    author={Yifan Song and Da Yin and Xiang Yue and Jie Huang and Sujian Li and Bill Yuchen Lin},
+    title={Trial and Error: Exploration-Based Trajectory Optimization for LLM Agents},
+    year={2024},
+    eprint={2403.02502},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" target="_blank"
+         href="https://arxiv.org/pdf/2403.02502.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/Yifan-Song793/ETO" target="_blank" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" target="_blank"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a target="_blank"
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
