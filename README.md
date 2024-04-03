@@ -1,25 +1,19 @@
 ---
-title: "Agent ETO"
-emoji: 🤖
+title: "WebBench"
+emoji: 🌐
 colorFrom: yellow
 colorTo: indigo
 sdk: static
 pinned: true
 ---
 
-# Agent ETO
+# WebBench
 
-This is the repository that contains source code for the [ETO website](https://github.com/Yifan-Song793/ETO).
+This is the repository that contains source code for the [WebBench](https://github.com).
 
-If you find ETO useful for your work please cite:
+If you find WebBench useful for your work please cite:
 ```
-@article{song2024trial,
-    author={Yifan Song, Da Yin, Xiang Yue, Jie Huang, Sujian Li, Bill Yuchen Lin},
-    title={Nerfies: Deformable Neural Radiance Fields},
-    year={2024},
-    eprint={2403.02502},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL}
+@article{
 }
 ```
 
