@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="description"
         content="WebBench: how far have multimodal LLMs evolved in web page understanding and grounding?">
-  <meta name="keywords" content="MLLM, benchmark">
+  <meta name="keywords" content="MLLM, VLM, LMM, WebBench, Large Language Model, Multimodal Large Language Model, MLLM Evaluation, Benchmark">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WebBench: How Far Have Multimodal LLMs Evolved in Web Page Understanding and Grounding?</title>
 
@@ -18,7 +18,11 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+
   <link rel="icon" href="./static/images/favicon.ico">
+
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -33,55 +37,55 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">WebBench</h1>
-          <h2 class="title is-2 publication-title">How Far Have Multimodal LLMs Evolved in Web Page Understanding and Grounding?</h2>
+          <h1 class="title is-1 publication-title">
+            <span>WebBench</span>
+          </h1>
+          <h2 class="subtitle is-3 publication-title">How Far Have Multimodal LLMs Evolved in Web Page Understanding and Grounding?</h2>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://github.com/Junpliu" target="_blank">Junpeng Liu</a><sup>1*</sup>,
+              <a href="https://github.com/Junpliu" target="_blank">Junpeng Liu</a><sup>2*</sup>,
             </span>
             <span class="author-block">
-              <a href="https://github.com/Yifan-Song793" target="_blank">Yifan Song</a><sup>2*</sup>,
+              <a href="https://github.com/Yifan-Song793" target="_blank">Yifan Song</a><sup>3*</sup>,
             </span>
             <span class="author-block">
-              <a href="https://yuchenlin.xyz/" target="_blank">Bill Yuchen Lin</a><sup>3</sup>
+              <a href="https://yuchenlin.xyz/" target="_blank">Bill Yuchen Lin</a><sup>5</sup>,
             </span>
             <span class="author-block">
-              <a href="https://xiangyue9607.github.io/" target="_blank">Wai Lam</a><sup>1</sup>,
+              <a href="https://xiangyue9607.github.io/" target="_blank">Wai Lam</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://xiangyue9607.github.io/" target="_blank">Graham Neubig</a><sup>4</sup>,
+              <a href="https://xiangyue9607.github.io/" target="_blank">Graham Neubig</a><sup>1</sup>,
             </span>
             <span class="author-block">
               <a href="https://xiangyue9607.github.io/" target="_blank">Yuanzhi Li</a><sup>4</sup>,
             </span>
             <span class="author-block">
-              <a href="https://xiangyue9607.github.io/" target="_blank">Xiang Yue</a><sup>4</sup>,
+              <a href="https://xiangyue9607.github.io/" target="_blank">Xiang Yue</a><sup>1</sup>,
             </span>
           </div>
 
+          <br>
+
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>The Chinese University of Hong Kong</span>&nbsp;&nbsp;&nbsp;
-            <span class="author-block"><sup>2</sup>Peking University</span>&nbsp;&nbsp;&nbsp;
-            <span class="author-block"><sup>3</sup>Allen Institute for AI</span>&nbsp;&nbsp;&nbsp;
-            <span class="author-block"><sup>4</sup>Carnegie Mellon University</span>
+            <span class="author-block"><sup>1</sup>Carnegie Mellon University</span>&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>2</sup>The Chinese University of Hong Kong</span>&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>3</sup>Peking University</span><br>
+            <span class="author-block"><sup>4</sup>MBZUAI</span>&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>5</sup>Allen Institute for AI</span>
           </div>
 
+          <br>
+
           <div class="is-size-5 thanks">
-            <span class="author-block"><sup>*</sup>Equal Contribution</span>
+            <span class="author-block"><sup>*</sup>Equal Contribution</span><br>
+            <span class="author-block">†Corresponding to:</span>
+            <span class="author-block"><a href="mailto:jpliu@link.cuhk.edu.hk">jpliu@link.cuhk.edu.hk</a>,</span>
+            <span class="author-block"><a href="mailto:xyue2@andrew.cmu.edu">xyue2@andrew.cmu.edu</a></span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="https://arxiv.org" target="_blank"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
               <span class="link-block">
                 <a href="https://arxiv.org" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
@@ -89,6 +93,15 @@
                       <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/webbench/WebBench" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <p style="font-size:18px">🤗</p>
+                  </span>
+                  <span>Dataset</span>
                 </a>
               </span>
               <!-- Code Link. -->
@@ -119,94 +132,23 @@
   </div>
 </section>
 
-<!-- <section class="hero teaser">
+<section class="hero teaser">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <img id="model" width="100%" src="static/images/intro.png">
-        </div>
-      </div>
+    <div class="content has-text-centered">
+      <img src="static/images/main.png" alt="geometric reasoning" width="90%"/>
     </div>
   </div>
-</section> -->
-
-
-
-
-<!-- <section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            We present <strong>ETO</strong>, an Exploration-based Trajectory Optimization approach, for LLM agent policy learning.
-            ETO allows an LLM agent to iteratively collect failure trajectories and updates its policy by learning from contrastive failure-success trajectory pairs.
-          </p>
-          
-          <p>
-            Contrary to previous studies that exclusively train on successful expert trajectories, our method allows agents to learn from their exploration failures. This leads to improved performance through an iterative optimization framework.
-            During the exploration phase, the agent interacts with the environment while completing given tasks, gathering failure trajectories to create contrastive trajectory pairs.
-            In the subsequent training phase, the agent utilizes these trajectory preference pairs to update its policy using contrastive learning methods like DPO.
-            This iterative cycle of exploration and training fosters continued improvement in the agents.
-          </p>
-          <p>
-            Our experiments on three complex tasks demonstrate that <strong>ETO</strong> consistently surpasses baseline performance by a large margin.
-            Furthermore, an examination of task-solving efficiency and potential in scenarios lacking expert trajectory underscores the effectiveness of our approach.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
+</section>
 
 
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-        <div class="content has-text-justified">
-          <p>
-            We present <strong>ETO</strong>, an Exploration-based Trajectory Optimization approach, for LLM agent policy learning.
-            ETO allows an LLM agent to iteratively collect failure trajectories and updates its policy by learning from contrastive failure-success trajectory pairs.
-          </p>
-          <p>
-            <strong>ETO</strong> has following features:
-            <ul>
-              <li>
-                🕹️ <strong>Learning by Trial and Error</strong>
-                <ul>
-                  <li>
-                    🎲 <strong>Learning from Failure Trajectories.</strong> Contrary to previous approaches that exclusively train on successful expert trajectories, ETO allows agents to learn from their exploration failures.
-                  </li>
-                  <li>
-                    🎭 <strong>Contrastive Trajectory Optimization.</strong> ETO applies DPO loss to perform policy learning from failure-success trajectory pairs.
-                  </li>
-                  <li>
-                    🌏 <strong>Iterative Policy Learning.</strong> ETO can be expanded to multiple rounds for further policy enhancement.
-                  </li>
-                </ul>
-              </li>
-              <li>
-                🎖️ <strong>Superior Performance</strong>
-                <ul>
-                  <li>
-                    ⚔️ <strong>Effectiveness on Three Datasets.</strong> ETO significantly outperforms strong baselines, such as RFT, PPO, on WebShop, ScienceWorld, and ALFWorld.
-                  </li>
-                  <li>
-                    🦾 <strong>Generalization on Unseen Scenarios.</strong> ETO demonstrates an impressive performance improvement of 22% over SFT on the challenging out-of-distribution test set in ScienceWorld.
-                  </li>
-                  <li>
-                    ⌛ <strong>Task-Solving Efficiency.</strong> ETO achieves higher rewards within fewer action steps on ScienceWorld.
-                  </li>
-                  <li>
-                    💡 <strong>Potential in Extreme Scenarios.</strong> ETO shows better performance in self-play scenarios where expert trajectories are not available.
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </p>
-          
+      <div class="content has-text-justified">
+        <p>
+          We introduce <strong>WebBench</strong>, a multimodal benchmark designed to assess the <strong>understanding and grounding capabilities of MLLMs in web scenarios</strong>. WebBench consists of <strong>seven tasks</strong>, and comprises <strong>1.5K</strong> human-curated instances from <strong>139</strong> real websites, covering 87 sub-domains. We evaluate 14 open-source MLLMs, Gemini Pro, Claude 3, and GPT-4V(ision) on WebBench, revealing significant challenges and performance gaps. Further analysis highlights the limitations of current MLLMs, including inadequate grounding in text-rich environments and subpar performance with low-resolution image inputs. We believe WebBench will serve as a valuable resource for the research community and contribute to the creation of more powerful and versatile MLLMs for web-related applications.
+        </p>
+      </div>
     </div>
 
   </div>
@@ -218,111 +160,87 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Overview</h2>
-        <img id="model" width="100%" src="static/images/main.png">
         <div class="content has-text-justified">
-          ETO starts from a base agent trained by SFT behavioral cloning and performs iterative "exploration-training" process.
+          We introduce WebBench, a comprehensive multimodal benchmark designed to assess the capabilities of MLLMs in the web domain. Inspired by the human interaction process with web browsers, WebBench consists of seven tasks that map to core abilities required for web tasks: captioning, webpage QA, heading OCR, element OCR, element grounding, action prediction, and action grounding, as detailed in the figure. The benchmark comprises 1.5K instances, all uniformly formulated in the QA style, making it easy to evaluate and compare the performance of different MLLMs.
+        </div>
+        <img id="model" width="100%" src="static/images/compare.png">
+        <br>
+        <div class="content has-text-justified">
+          The proposed WebBench possesses the following features:
           <ul>
             <li>
-              <strong>Behavioral Cloning:</strong>
-              <ul>
-                <li>
-                  The base agent is trained by supervised fine-tuning (SFT) on expert trajectories.
-                </li>
-              </ul>
+              <strong>Comprehensiveness</strong>: WebBench spans 139 websites with 1.5K samples, encompassing 12 different domains (e.g., travel, sports, hobby, lifestyle, animals, science, etc.) and 87 sub-domains.
             </li>
             <li>
-              <strong>Exploration Phase:</strong>
-              <ul>
-                <li>
-                  The agent explores the environment to the get the trajectories on the instructions of training data for BC.
-                </li>
-                <li>
-                  Failure trajectories are collected to create contrastive trajectory pairs.
-                </li>
-              </ul>
+              <strong>Multi-granularity</strong>: WebBench assesses MLLMs at three levels: website-level, element-level, and action-level.
             </li>
             <li>
-              <strong>Training Phase:</strong>
-              <ul>
-                <li>
-                  The agent utilizes these trajectory preference pairs to update its policy using contrastive learning methods like DPO.
-                </li>
-              </ul>
+              <strong>Multi-tasks</strong>: WebBench encompasses seven tasks designed to evaluate the understanding, OCR, grounding, and reasoning capabilities of MLLMs.
+            </li>
+            <li>
+              <strong>High quality</strong>: Quality is ensured through careful human verification and curation efforts.
+            </li>
+          </ul>
+        </div>
+        
+        <img id="model" width="100%" src="static/images/detail.png">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Experimental Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            We evaluate 12 open-source general MLLMs on WebBench. By default, for each model family, we use the largest available checkpoint. We consider three scales of LLaVA, 7B, 13B, and 34B, for model scaling analysis. Several strong close-source MLLMs, Gemini Pro, Claude series, and GPT-4V(ision), are also included for evaluation. In addition, we evalute 2 GUI-specialist MLLMs, CogAgent and SeeClick, on WebBench.
+          </p>
+        </div>
+        <img id="model" width="100%" src="static/images/exp.png">
+        <div class="content has-text-justified">
+          We highlight the following findings:
+          <ul>
+            <li>
+              <strong>Challenging Nature of Web Tasks</strong>: Even the most powerful MLLM, GPT-4V, achieves an average score of only 64.6 on WebBench, leaving ample room for improvement.
+            </li>
+            <li>
+              <strong>Disparity between Open-source and Proprietary MLLMs</strong>: GPT-4V and Claude outperforms open-source MLLMs including GUI-specialist MLLMs by a large margin, highlighting a discernible gap in the capabilities of current open-source MLLMs compared to proprietary ones like GPT-4V.
+            </li>
+            <li>
+              <strong>Scaling Leads to Better Performance</strong>: Compared with the 7B and 13B versions of LLaVA-1.6, the 34B model achieves a performance boost across almost all tasks, reaching an average score of 46.1, approaching the performance of Gemini Pro (48.0). 
+            </li>
+            <li>
+              <strong>General MLLMs vs. GUI-Specialist MLLMs</strong>: SeeClick and CogAgent are two MLLMs pre-trained on GUI grounding tasks. However, we observe that these GUI-specialist MLLMs do not exhibit significant performance improvement.
             </li>
           </ul>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
 
-
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Comparisons with Other Benchmarks</h2>
-        <img id="model" width="100%" src="static/images/exp.png">
-        <div class="content has-text-justified">
-          <p>
-            <strong>ETO</strong> is evaluated on three representative agent datasets: WebShop for web navigation, ScienceWorld for simulated science experiments, ALFWorld for embodied household tasks.
-          </p>
-          <p>
-            We find that ETO consistently outperforms all other baseline agent by a large margin on all three datasets.
-            In out-of-distribution unseen scenarios, ETO also shows its effectiveness, achieving an impressive performance boost of 20% on ScienceWorld-Unseen.
-          </p>
-        </div>
+    <h2 class="title is-3">Case Study</h2>
+    <div id="results-carousel" class="carousel results-carousel">
+      <div class="item">
+          <img width="100%" src="static/images/case1.png">
+      </div>
+      <div class="item item-steve">
+        <img width="100%" src="static/images/case2.png">
+      </div>
+      <div class="item item-steve">
+        <img width="100%" src="static/images/case3.png">
       </div>
     </div>
-
-  </div>
-</section>
-
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Experimental Results</h2>
-        <img id="model" width="100%" src="static/images/exp.png">
-        <div class="content has-text-justified">
-          <p>
-            <strong>ETO</strong> is evaluated on three representative agent datasets: WebShop for web navigation, ScienceWorld for simulated science experiments, ALFWorld for embodied household tasks.
-          </p>
-          <p>
-            We find that ETO consistently outperforms all other baseline agent by a large margin on all three datasets.
-            In out-of-distribution unseen scenarios, ETO also shows its effectiveness, achieving an impressive performance boost of 20% on ScienceWorld-Unseen.
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Case Study</h2>
-        <img id="model" width="100%" src="static/images/exp.png">
-        <div class="content has-text-justified">
-          <p>
-            <strong>ETO</strong> is evaluated on three representative agent datasets: WebShop for web navigation, ScienceWorld for simulated science experiments, ALFWorld for embodied household tasks.
-          </p>
-          <p>
-            We find that ETO consistently outperforms all other baseline agent by a large margin on all three datasets.
-            In out-of-distribution unseen scenarios, ETO also shows its effectiveness, achieving an impressive performance boost of 20% on ScienceWorld-Unseen.
-          </p>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
