@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="WebBench: how far have multimodal LLMs evolved in web page understanding and grounding?">
+        content="VisualWebBench: how far have multimodal LLMs evolved in web page understanding and grounding?">
   <meta name="keywords" content="MLLM, VLM, LMM, WebBench, Large Language Model, Multimodal Large Language Model, MLLM Evaluation, Benchmark">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>WebBench: How Far Have Multimodal LLMs Evolved in Web Page Understanding and Grounding?</title>
+  <title>VisualWebBench: How Far Have Multimodal LLMs Evolved in Web Page Understanding and Grounding?</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -34,7 +34,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">
-            <span>WebBench</span>
+            <span>VisualWebBench</span>
           </h1>
           <h2 class="subtitle is-3 publication-title">How Far Have Multimodal LLMs Evolved in Web Page Understanding and Grounding?</h2>
           <div class="is-size-5 publication-authors">
@@ -102,7 +102,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/WebBench-MLLM/WebBench" target="_blank"
+                <a href="https://github.com/VisualWebBench/VisualWebBench" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -142,7 +142,7 @@
     <div class="columns is-centered has-text-centered">
       <div class="content has-text-justified">
         <p>
-          We introduce <strong>WebBench</strong>, a multimodal benchmark designed to assess the <strong>understanding and grounding capabilities of MLLMs in web scenarios</strong>. WebBench consists of <strong>seven tasks</strong>, and comprises <strong>1.5K</strong> human-curated instances from <strong>139</strong> real websites, covering 87 sub-domains. We evaluate 14 open-source MLLMs, Gemini Pro, Claude 3, and GPT-4V(ision) on WebBench, revealing significant challenges and performance gaps. Further analysis highlights the limitations of current MLLMs, including inadequate grounding in text-rich environments and subpar performance with low-resolution image inputs. We believe WebBench will serve as a valuable resource for the research community and contribute to the creation of more powerful and versatile MLLMs for web-related applications.
+          We introduce <strong>VisualWebBench</strong>, a multimodal benchmark designed to assess the <strong>understanding and grounding capabilities of MLLMs in web scenarios</strong>. VisualWebBench consists of <strong>seven tasks</strong>, and comprises <strong>1.5K</strong> human-curated instances from <strong>139</strong> real websites, covering 87 sub-domains. We evaluate 14 open-source MLLMs, Gemini Pro, Claude 3, and GPT-4V(ision) on VisualWebBench, revealing significant challenges and performance gaps. Further analysis highlights the limitations of current MLLMs, including inadequate grounding in text-rich environments and subpar performance with low-resolution image inputs. We believe VisualWebBench will serve as a valuable resource for the research community and contribute to the creation of more powerful and versatile MLLMs for web-related applications.
         </p>
       </div>
     </div>
@@ -162,16 +162,16 @@
         <img id="model" width="100%" src="static/images/compare.png">
         <br>
         <div class="content has-text-justified">
-          The proposed WebBench possesses the following features:
+          The proposed VisualWebBench possesses the following features:
           <ul>
             <li>
-              <strong>Comprehensiveness</strong>: WebBench spans 139 websites with 1.5K samples, encompassing 12 different domains (e.g., travel, sports, hobby, lifestyle, animals, science, etc.) and 87 sub-domains.
+              <strong>Comprehensiveness</strong>: VisualWebBench spans 139 websites with 1.5K samples, encompassing 12 different domains (e.g., travel, sports, hobby, lifestyle, animals, science, etc.) and 87 sub-domains.
             </li>
             <li>
-              <strong>Multi-granularity</strong>: WebBench assesses MLLMs at three levels: website-level, element-level, and action-level.
+              <strong>Multi-granularity</strong>: VisualWebBench assesses MLLMs at three levels: website-level, element-level, and action-level.
             </li>
             <li>
-              <strong>Multi-tasks</strong>: WebBench encompasses seven tasks designed to evaluate the understanding, OCR, grounding, and reasoning capabilities of MLLMs.
+              <strong>Multi-tasks</strong>: VisualWebBench encompasses seven tasks designed to evaluate the understanding, OCR, grounding, and reasoning capabilities of MLLMs.
             </li>
             <li>
               <strong>High quality</strong>: Quality is ensured through careful human verification and curation efforts.
@@ -196,7 +196,7 @@
         <h2 class="title is-3">Experimental Results</h2>
         <div class="content has-text-justified">
           <p>
-            We evaluate 14 open-source general MLLMs on WebBench. By default, for each model family, we use the largest available checkpoint. We consider three scales of LLaVA, 7B, 13B, and 34B, for model scaling analysis. Several strong close-source MLLMs, Gemini Pro, Claude series, and GPT-4V(ision), are also included for evaluation. In addition, we evaluate 2 GUI-specialist MLLMs, CogAgent and SeeClick, on WebBench.
+            We evaluate 14 open-source general MLLMs on VisualWebBench. By default, for each model family, we use the largest available checkpoint. We consider three scales of LLaVA, 7B, 13B, and 34B, for model scaling analysis. Several strong close-source MLLMs, Gemini Pro, Claude series, and GPT-4V(ision), are also included for evaluation. In addition, we evaluate 2 GUI-specialist MLLMs, CogAgent and SeeClick, on VisualWebBench.
           </p>
         </div>
         <img id="model" width="100%" src="static/images/exp.png">
@@ -204,7 +204,7 @@
           We highlight the following findings:
           <ul>
             <li>
-              <strong>Challenging Nature of Web Tasks</strong>: Even the most powerful MLLM, GPT-4V, achieves an average score of only 64.6 on WebBench, leaving ample room for improvement.
+              <strong>Challenging Nature of Web Tasks</strong>: Even the most powerful MLLM, GPT-4V, achieves an average score of only 64.6 on VisualWebBench, leaving ample room for improvement.
             </li>
             <li>
               <strong>Disparity between Open-source and Proprietary MLLMs</strong>: GPT-4V and Claude outperform open-source MLLMs including GUI-specialist MLLMs by a large margin, highlighting a discernible gap in the capabilities of current open-source MLLMs compared to proprietary ones like GPT-4V.
@@ -249,9 +249,9 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{liu2024webbench,
+    <pre><code>@article{liu2024visualwebbench,
     author={Junpeng Liu and Yifan Song and Bill Yuchen Lin and Wai Lam and Graham Neubig and Yuanzhi Li and Xiang Yue},
-    title={WebBench: How Far Have Multimodal LLMs Evolved in Web Page Understanding and Grounding?},
+    title={VisualWebBench: How Far Have Multimodal LLMs Evolved in Web Page Understanding and Grounding?},
     year={2024},
     eprint={2404.99999},
     archivePrefix={arXiv},
