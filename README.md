@@ -1,6 +1,6 @@
 ---
 title: "WebBench"
-emoji: 🌐
+emoji: ![logo](https://github.com/VisualWebBench/visualwebbench.github.io/assets/43842380/6ff149cd-fec0-4c5a-9588-af67e3c7dab2)
 colorFrom: yellow
 colorTo: indigo
 sdk: static
