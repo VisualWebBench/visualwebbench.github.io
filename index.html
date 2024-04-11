@@ -19,7 +19,7 @@
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
 
-  <link rel="icon" href="./static/images/favicon.ico">
+  <link rel="icon" href="./static/images/logo.ico">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -34,6 +34,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">
+            <img src="static/images/logo.jpeg" style="width:2em;vertical-align: middle">
             <span>VisualWebBench</span>
           </h1>
           <h2 class="subtitle is-3 publication-title">How Far Have Multimodal LLMs Evolved in Web Page Understanding and Grounding?</h2>
@@ -155,6 +156,11 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
+        <div>
+          <video controls>
+            <source src="static/images/demo.mp4" type="video/mp4">
+          </video>
+        </div>
         <h2 class="title is-3">Overview</h2>
         <div class="content has-text-justified">
           We introduce WebBench, a comprehensive multimodal benchmark designed to assess the capabilities of MLLMs in the web domain. Inspired by the human interaction process with web browsers, WebBench consists of seven tasks that map to core abilities required for web tasks: captioning, webpage QA, heading OCR, element OCR, element grounding, action prediction, and action grounding, as detailed in the figure. The benchmark comprises 1.5K instances, all uniformly formulated in the QA style, making it easy to evaluate and compare the performance of different MLLMs.
@@ -196,7 +202,7 @@
         <h2 class="title is-3">Experimental Results</h2>
         <div class="content has-text-justified">
           <p>
-            We evaluate 14 open-source general MLLMs on VisualWebBench. By default, for each model family, we use the largest available checkpoint. We consider three scales of LLaVA, 7B, 13B, and 34B, for model scaling analysis. Several strong close-source MLLMs, Gemini Pro, Claude series, and GPT-4V(ision), are also included for evaluation. In addition, we evaluate 2 GUI-specialist MLLMs, CogAgent and SeeClick, on VisualWebBench.
+            We evaluate 14 open-source general MLLMs on VisualWebBench. By default, for each model family, we use the largest available checkpoint. We consider three scales of LLaVA, 7B, 13B, and 34B, for model scaling analysis. Several strong close-source MLLMs, Gemini Pro, Claude series, and GPT-4V(ision), are also included for evaluation. In addition, we evaluate 2 GUI agent MLLMs, i.e., CogAgent and SeeClick, on VisualWebBench.
           </p>
         </div>
         <img id="model" width="100%" src="static/images/exp.png">
@@ -204,16 +210,19 @@
           We highlight the following findings:
           <ul>
             <li>
-              <strong>Challenging Nature of Web Tasks</strong>: Even the most powerful MLLM, GPT-4V, achieves an average score of only 64.6 on VisualWebBench, leaving ample room for improvement.
+              <strong>Challenging Nature of Web Tasks</strong>: Even the most powerful MLLMs, GPT-4V and Claude Sonnet achieve average scores of 64.6 and 65.8, respectively, leaving ample room for improvement.
             </li>
             <li>
-              <strong>Disparity between Open-source and Proprietary MLLMs</strong>: GPT-4V and Claude outperform open-source MLLMs including GUI-specialist MLLMs by a large margin, highlighting a discernible gap in the capabilities of current open-source MLLMs compared to proprietary ones like GPT-4V.
+              <strong>Disparity between Open-source and Proprietary MLLMs</strong>: GPT-4V and Claude outperform open-source MLLMs including GUI agent MLLMs by a large margin, highlighting a discernible gap in the capabilities of current open-source MLLMs compared to proprietary ones.
             </li>
             <li>
-              <strong>Scaling Leads to Better Performance</strong>: Compared with the 7B and 13B versions of LLaVA-1.6, the 34B model achieves a performance boost across almost all tasks, reaching an average score of 50.5, outperforming the performance of Gemini Pro (48.0). 
+              <strong>Weak Correlations with General and Agent Benchmarks</strong>: MLLMs' abilities in general domains, such as general reasoning on MMMU, and web agent tasks, such as Mind2Web, do not correlate much with their performance on VisualWebBench, highlighting the importance of web-specific benchmarks like VisualWebBench.
             </li>
             <li>
-              <strong>General MLLMs vs. GUI-Specialist MLLMs</strong>: SeeClick and CogAgent are two MLLMs pre-trained on GUI grounding tasks. However, we observe that these GUI-specialist MLLMs do not exhibit significant performance improvement.
+              <strong>Importance of Image Resolution</strong>: The limited image resolution handling capabilities of most open-source MLLMs restrict their utility in web scenarios, where rich text and elements are prevalent.
+            </li>
+            <li>
+              <strong>Weak Grounding Ability</strong>: Grounding ability, a crucial skill for developing MLLM-based web applications like autonomous web agents, is a weakness for most MLLMs.
             </li>
           </ul>
         </div>
